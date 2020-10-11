@@ -1,0 +1,62 @@
+Name: Yihao Zhou
+USC NetId: 9751577777
+CSCI 455 PA1
+Fall 2020
+Yihao Zhou
+----------------------------------------------
+CERTIFY IT'S YOUR WORK
+
+"I certify that the work submitted for this assignment does not
+violate USC's student conduct code.  In particular, the work is my
+own, not a collaboration, and does not involve code created by other
+people, except for the the resources explicitly mentioned in the CS 455
+Course Syllabus.  And I did not share my solution or parts of it with
+other students in the course."
+
+Initial below to "sign" the above statement:
+
+YZ
+----------------------------------------------
+ACKNOWLEDGE ANY OUTSIDE SOURCES
+
+List here any code you submitted for this assignment that was written
+with significant help of a course staff member, or code used from the
+textbook.  Be specific about what methods or algorithms are involved,
+and what sections of the textbook are involved (if applicable): [you do
+not need to list any of the code that we wrote for the assignment,
+i.e., the contents of the starter files for the assignment]
+	JFrame frame = new JFrame();
+
+	frame.setSize(800, 500);
+	frame.setTitle("CoinSim");
+	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	CoinSimComponent component = new CoinSimComponent(numTrials);
+	frame.add(component);
+
+	frame.setVisible(true);
+
+
+----------------------------------------------
+KNOWN BUGS or LIMITATIONS:
+
+The width of bar would not adjust with the size of the frame.
+
+
+----------------------------------------------
+ANY OTHER NOTES FOR THE GRADER:
+
+
+
+----------------------------------------------
+ANSWERS TO ASSIGNMENT README QUESTIONS (if applicable):
+
+1. code by course staff and code from textbook
+
+2. 2 heads: 1/4, 2 tails: 1/4, 1 head and tail: 1/2. It is different becasue in total there are two possible chances for 1 head and tail out of 4.
+
+3. 1500 trials needed roughly
+
+4. 40000000 is the largest value tried and worked correctly and 50000000 makes it overflow.
+
+

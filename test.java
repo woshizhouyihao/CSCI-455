@@ -7,7 +7,6 @@ public class test{
 		int[] a1 = new int[]{2,3,4,5,1,2,3,4};
 		System.out.println(merge(a1,0,4, a1.length - 1));
 		for(int x:a1) System.out.print(x+" ");
-		// here is a change
 		System.out.println(" ");
 		print(4);
 

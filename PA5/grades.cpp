@@ -1,5 +1,5 @@
-// Name:
-// USC NetID:
+// Name: Yihao Zhou
+// USC NetID: 9751577777
 // CSCI 455 PA5
 // Fall 2020
 
@@ -48,10 +48,56 @@ int main(int argc, char * argv[]) {
 
 
    grades->hashStats(cout);
-
    // add more code here
    // Reminder: use -> when calling Table methods, since grades is type Table*
 
+   while(true) {
+   	cout << "cmd> ";
+   	string command;
+   	string name;
+   	int score;
+   	cin >> command;
+   	if(command == "insert") {
+   		cin >> name;
+   		cin >> score;
+   		if(!grades->insert(name, score)) {
+   			cout << "Name existed." << endl;
+   		}
+
+   	} else if(command == "change") {
+   		cin >> name;
+   		cin >> score;
+   		if(!((*grades->lookup(name)) = score)) {
+   			cout << "Name not exists." << endl;
+   		}
+   	} else if(command == "lookup") {
+   		cin >> name;
+   		int* p;
+   		if(!(p = grades->lookup(name))) {
+   			cout << "Name not exists." << endl;
+   		} else {
+   			cout << *p << endl;
+   		}
+   	} else if(command == "remove"){
+   		cin >> name;
+   		if(!grades->remove(name)) {
+   			cout << "Name not exists." << endl;
+   		}
+   	} else if(command == "print") {
+   		grades->printAll();
+   	} else if(command == "size") {
+   		cout << grades->numEntries() << endl;
+   	} else if(command == "stats") {
+   		grades->hashStats(cout);
+   	} else if(command == "help") {
+   		cout << "[insert, change, lookup, remove, print, size, stats, help, quit]" << endl;
+   	} else if(command == "quit") {
+   		break;
+   	} else {
+   		cout << "ERROR: invalid command" << endl;
+   		cout << "[insert, change, lookup, remove, print, size, stats, help, quit]" << endl;
+   	}
+   }
 
    return 0;
 }

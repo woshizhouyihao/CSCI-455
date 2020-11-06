@@ -1,5 +1,5 @@
-// Name:
-// USC NetID:
+// Name: Yihao Zhou
+// USC NetID: 9751577777
 // CSCI 455 PA5
 // Fall 2020
 
@@ -98,6 +98,9 @@ class Table {
 
    unsigned int hashSize;      // size of the hash table
    // (used in hashCode method above)
+
+   Node **arr;
+   int numOfEntries;
 
 
 };

@@ -1,8 +1,7 @@
-// Name:
-// USC NetID:
+// Name: Yihao Zhou
+// USC NetID: 9751577777
 // CSCI 455 PA5
 // Fall 2020
-
 
 //*************************************************************************
 // Node class definition 
@@ -37,8 +36,13 @@ typedef Node * ListType;
 //that operate on a list here (i.e., each includes a parameter of type
 //ListType or ListType&).  No function definitions go in this file.
 
+ 	int *lookupList(const std::string &key, Node* & arr);
 
+ 	bool removeList(const std::string &key, Node* & arr);
 
+ 	bool insertList(const std::string &key, int& value, Node* & arr);
+
+	void printAllList(Node** arr, int size);
 
 
 

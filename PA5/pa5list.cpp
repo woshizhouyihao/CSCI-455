@@ -1,6 +1,6 @@
-// Name:
-// USC NetID:
-// CS 455 PA5
+// Name: Yihao Zhou
+// USC NetID: 9751577777
+// CSCI 455 PA5
 // Fall 2020
 
 // pa5list.cpp

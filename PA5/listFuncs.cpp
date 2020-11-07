@@ -24,30 +24,27 @@ Node::Node(const string &theKey, int theValue, Node *n) {
    next = n;
 }
 
-
-
-
 //*************************************************************************
 // put the function definitions for your list functions below
 
-int *lookupList(const std::string &key, Node*& arr) {
-	Node *p = arr;
+int *lookupList(const std::string &key, ListType& list) {
+	ListType p = list;
 	while(p != NULL) {
 		if(p->key == key) {
 			return &(p->value);
 		}
 		p = p->next;
 	}
-   return NULL;
+   return NULL; // no such node found
 }
 
-bool removeList(const std::string &key, Node*& arr) {
-	Node *t;
-	Node *p = arr;
+bool removeList(const std::string &key, ListType& list) {
+	ListType t; // temp node for handling memory leak
+	ListType p = list;
 	// handle first node
-	if(p->key == key) {
+	if(p->key == key) { // if such node found at the first
 		t = p;
-		arr = p->next;
+		list = p->next;
 		delete t;
 		return true;
 	}
@@ -68,19 +65,20 @@ bool removeList(const std::string &key, Node*& arr) {
    return false; // no key present
 }
 
-bool insertList(const std::string &key, int& value, Node*& arr) {
-	arr = new Node(key, value, arr);
+bool insertList(const std::string &key, int& value, ListType& list) {
+	// if the node with given key already exists
+	if(lookupList(key, list) != NULL) {
+		return false;
+	}
+	// insert the node to the head of the list
+	list = new Node(key, value, list);
 	return true;
 }
 
-void printAllList(Node** arr, int size){
-	for(int i = 0; i < size; i++) {
-		if(arr[i] != NULL) {
-			Node* p = arr[i];
-			while(p != NULL) {
-				cout << p->key << " " << p->value << endl;
-				p = p->next;
-			}
-		}
+void printAllList(ListType& list){
+	ListType p = list;
+	while(p != NULL) {
+		cout << p->key << " " << p->value << endl;
+		p = p->next;
 	}
 }

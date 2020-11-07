@@ -99,10 +99,8 @@ class Table {
    unsigned int hashSize;      // size of the hash table
    // (used in hashCode method above)
 
-   Node **arr;
+   ListType* arr;
    int numOfEntries;
-
-
 };
 
 #endif

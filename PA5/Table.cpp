@@ -28,14 +28,14 @@ using namespace std;
 
 Table::Table() {
 	Table::hashSize = Table::HASH_SIZE;
-	arr = new Node*[hashSize]();
+	arr = new ListType[hashSize]();
 	numOfEntries = 0;
 }
 
 
 Table::Table(unsigned int hSize) {
 	Table::hashSize = hSize;
-	arr = new Node*[hashSize]();
+	arr = new ListType[hashSize]();
 	numOfEntries = 0;
 }
 
@@ -54,11 +54,11 @@ bool Table::remove(const string &key) {
 
 bool Table::insert(const string &key, int value) {
 	// if exists return false and do nothing
-	if(lookup(key)) {
-		return false;
+	bool result = insertList(key, value, arr[hashCode(key)]);
+	if(result) {
+		numOfEntries++;
 	}
-	numOfEntries++;
-	return insertList(key, value, arr[hashCode(key)]);	
+	return result;
 }
 
 int Table::numEntries() const {
@@ -67,7 +67,9 @@ int Table::numEntries() const {
 
 
 void Table::printAll() const {
-	printAllList(arr, hashSize);
+	for(int i = 0; i < hashSize; i++) {
+		printAllList(arr[i]);
+	}
 }
 
 void Table::hashStats(ostream &out) const {

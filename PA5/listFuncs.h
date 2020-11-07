@@ -36,22 +36,23 @@ typedef Node * ListType;
 //that operate on a list here (i.e., each includes a parameter of type
 //ListType or ListType&).  No function definitions go in this file.
 
- 	int *lookupList(const std::string &key, Node* & arr);
+// lookup the node with given key in the given list
+// return the pointer to the value of the node
+// return NULL if no such node found
+int *lookupList(const std::string &key, ListType& list);
 
- 	bool removeList(const std::string &key, Node* & arr);
+// remove the node with given key in the given list
+// return true if such node is found and is removed
+// return false if such node does not exist
+bool removeList(const std::string &key, ListType& list);
 
- 	bool insertList(const std::string &key, int& value, Node* & arr);
+// insert the node with given key and value into the given list
+// return false if the node already exists
+// return true if insert successully
+bool insertList(const std::string &key, int& value, ListType& list);
 
-	void printAllList(Node** arr, int size);
-
-
-
-
-
-
-
-
-
+// print out all nodes with keys and values in list
+void printAllList(ListType& list);
 
 // keep the following line at the end of the file
 #endif

@@ -56,30 +56,37 @@ int main(int argc, char * argv[]) {
    	string command;
    	string name;
    	int score;
-   	cin >> command;
+   	cin >> command; // read in command
    	if(command == "insert") {
+   		// read in data
    		cin >> name;
    		cin >> score;
+   		// check if such name exists
+   		// if exists print message
+   		// else insert
    		if(!grades->insert(name, score)) {
    			cout << "Name existed." << endl;
    		}
-
    	} else if(command == "change") {
+   		// read in data
    		cin >> name;
    		cin >> score;
+   		// if exists print out message
+   		// else change score
    		if(!((*grades->lookup(name)) = score)) {
    			cout << "Name not exists." << endl;
    		}
    	} else if(command == "lookup") {
-   		cin >> name;
+   		cin >> name; // read in data
    		int* p;
-   		if(!(p = grades->lookup(name))) {
+   		if(!(p = grades->lookup(name))) { // if such node does not exist
    			cout << "Name not exists." << endl;
-   		} else {
+   		} else { // if exists print score
    			cout << *p << endl;
    		}
    	} else if(command == "remove"){
    		cin >> name;
+   		// if such node not exist
    		if(!grades->remove(name)) {
    			cout << "Name not exists." << endl;
    		}
@@ -93,7 +100,7 @@ int main(int argc, char * argv[]) {
    		cout << "[insert, change, lookup, remove, print, size, stats, help, quit]" << endl;
    	} else if(command == "quit") {
    		break;
-   	} else {
+   	} else { // if user input is not valid 
    		cout << "ERROR: invalid command" << endl;
    		cout << "[insert, change, lookup, remove, print, size, stats, help, quit]" << endl;
    	}
